@@ -5,13 +5,13 @@
     </div>
     <div class="unfollow-button">
       <%= form_for contact, method: :delete, remote: true do |f| %>
-        <%= f.submit t('contact.unfollow') %>
+        <%= f.submit t('contact.unfollow'), class: 'btn' %>
       <% end %>
     </div>
   <% else %>
     <%= form_for contact, remote: true do |f| %>
       <%= f.hidden_field :relation_ids, value: contact.options_for_select.first.last %>
-      <%= f.submit t('contact.follow') %>
+      <%= f.submit t('contact.follow'), class: 'btn btn-xs btn-primary' %>
     <% end %>
   <% end %>
 </div>

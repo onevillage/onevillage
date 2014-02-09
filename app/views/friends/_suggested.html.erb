@@ -2,7 +2,7 @@
   <h4>People You May Know</h4>
 
   <%= render partial: 'friends/suggestion',
-             collection: Actor.followed.first(6),
+             collection: Actor.suggested(current_subject).first(6),
              as: :actor %>
   <a href="<%= resources_path %>">Done</a>
 </section>
