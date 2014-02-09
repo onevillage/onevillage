@@ -1,9 +1,7 @@
 <section id="home">
   <%= render partial: 'toolbar/home' %>
 
-  <%= render :partial => "activities/index",
+  <%= render :partial => "friends/suggested",
              :locals => { section: :home,
                           owner: current_subject } %>
-
-  <%= render partial: 'sidebar/show' %>
 </section>

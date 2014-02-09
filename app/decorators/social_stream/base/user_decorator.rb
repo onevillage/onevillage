@@ -1,6 +1,12 @@
 User.class_eval do
   attr_accessible :system, :inmate_number
 
+  def new(params)
+    Rails.logger.debug('in new')
+    super
+  end
+
+
   def inmate_number
     if actor and actor.profile
       actor.profile.inmate_number

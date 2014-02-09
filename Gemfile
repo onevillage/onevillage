@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'therubyracer'
 
 gem 'social_stream'
+gem 'seed-fu'
 
 group :development do
   gem 'thin'
