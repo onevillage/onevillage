@@ -1,8 +1,14 @@
 User.class_eval do
   attr_accessible :system, :inmate_number
 
-  def new(params)
-    Rails.logger.debug('in new')
+  def self.new(params)
+    if params['name'] == 'Temp'
+      # XXX: pull this from the table
+      params['name'] = 'A new name for this user'
+    end
+    if params['email'] == 'temp@justcamehome.info'
+      params['email'] = "#{SecureRandom.hex(20)}@justcamehome.info"
+    end
     super
   end
 
