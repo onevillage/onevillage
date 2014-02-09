@@ -1,7 +1,11 @@
 <section id="resources">
-  <ul>
+  <table>
     <% @resources.each do |r| %>
-      <li><span><%= r.name %></span><button><%= r.upvotes %></button><button><%= r.downvotes %></button></li>
+      <tr width="360px">
+        <td style="overflow: hidden; text-oveflow: ellipsis; width: 300px;"><%= r.name %></td>
+        <td><button class='btn btn-xs btn-success'><%= r.upvotes %></button></td>
+        <td><button class='btn btn-xs btn-warning'><%= r.downvotes %></button></td>
+      </tr>
     <% end %>
   </ul>
 </section>
