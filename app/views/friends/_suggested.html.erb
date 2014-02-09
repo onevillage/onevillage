@@ -4,5 +4,5 @@
   <%= render partial: 'friends/suggestion',
              collection: Actor.suggested(current_subject).first(6),
              as: :actor %>
-  <a href="<%= resources_path %>">Done</a>
+  <a href="<%= resources_path %>" class="btn btn-xs btn-primary">Done</a>
 </section>
