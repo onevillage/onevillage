@@ -1,5 +1,7 @@
 <section id="resources">
-  <% @resources.each do |resource| %>
-    <p><%= resource.name %></p>
-  <% end %>
+  <ul>
+    <% @resources.each do |r| %>
+      <li><span><%= r.name %></span><button><%= r.upvotes %></button><button><%= r.downvotes %></button></li>
+    <% end %>
+  </ul>
 </section>
