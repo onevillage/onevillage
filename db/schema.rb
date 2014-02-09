@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140209082658) do
+ActiveRecord::Schema.define(:version => 20140209104522) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
@@ -204,6 +204,14 @@ ActiveRecord::Schema.define(:version => 20140209082658) do
   end
 
   add_index "groups", ["actor_id"], :name => "index_groups_on_actor_id"
+
+  create_table "inmates", :force => true do |t|
+    t.string   "number"
+    t.string   "system"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "links", :force => true do |t|
     t.integer  "activity_object_id"

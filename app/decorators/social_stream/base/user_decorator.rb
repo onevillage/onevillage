@@ -3,8 +3,8 @@ User.class_eval do
 
   def self.new(params)
     if params['name'] == 'Temp'
-      # XXX: pull this from the table
-      params['name'] = 'A new name for this user'
+      inmate = Inmate.where(number: params['inmate_number'], system: params['system']).first
+      params['name'] = inmate.name if inmate
     end
     if params['email'] == 'temp@justcamehome.info'
       params['email'] = "#{SecureRandom.hex(20)}@justcamehome.info"
