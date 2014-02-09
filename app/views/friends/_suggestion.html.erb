@@ -1,0 +1,19 @@
+<section class="content">
+  <div class="case">
+    <nav class="first-line-mini">
+      <%= link_to actor.name, actor.subject %>
+    </nav>
+    <section class="second-line">
+      <%= actor.description %>
+    </section>
+  </div>
+  <aside class="well well-small">
+    <div class="top">
+      <%= t 'follower.n', count: actor.follower_count %>
+    </div>
+  </aside>
+  <aside class="well well-small">
+    <%= render partial: 'friends/button_simple',
+               locals: { contact: current_subject.contact_to!(actor) } %>
+  </aside>
+</section>

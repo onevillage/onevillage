@@ -1,7 +1,7 @@
 <section class="sub-content-medium">
   <h4>People You May Know</h4>
 
-  <%= render partial: 'explore/followed',
+  <%= render partial: 'friends/suggestion',
              collection: Actor.followed.first(6),
              as: :actor %>
   <a href="<%= resources_path %>">Done</a>

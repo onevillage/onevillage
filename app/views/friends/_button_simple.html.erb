@@ -1,0 +1,27 @@
+<div class="contact-button-single-<%= contact.id %>">
+  <% if contact.sent? %>
+    <div class="following-button">
+      <%= t 'contact.following' %>
+    </div>
+    <div class="unfollow-button">
+      <%= form_for contact, method: :delete, remote: true do |f| %>
+        <%= f.submit t('contact.unfollow') %>
+      <% end %>
+    </div>
+  <% else %>
+    <%= form_for contact, remote: true do |f| %>
+      <%= f.hidden_field :relation_ids, value: contact.options_for_select.first.last %>
+      <%= f.submit t('contact.follow') %>
+    <% end %>
+  <% end %>
+</div>
+<%= javascript_tag do %>
+  <% if contact.errors.blank? %>
+    <% if contact.options_for_select.count == 1 %>
+      $('.contact-button-single-<%= contact.id %>').replaceWith("<%= j render(partial: 'contacts/button_simple', object: contact.reload, as: :contact) %>");
+    <% end %>
+    SocialStream.Contact.update({ id: "<%= contact.id %>" });
+  <% else %>
+    SocialStream.Flash.error("<%= contact.errors.full_messages.to_sentence %>");
+  <% end %>
+<% end %>
