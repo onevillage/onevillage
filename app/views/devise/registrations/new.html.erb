@@ -15,6 +15,9 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div><%= f.label :system %><br />
+  <%= f.select :system, options_for_select(['Federal', 'California', 'Michigan']) %></div>
+
   <div><%= f.label :inmate_number %><br />
   <%= f.text_field :inmate_number %></div>
 
