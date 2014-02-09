@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140209014921) do
+ActiveRecord::Schema.define(:version => 20140209061847) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
@@ -292,6 +292,9 @@ ActiveRecord::Schema.define(:version => 20140209014921) do
     t.string   "im",            :limit => 45
     t.string   "inmate_number"
     t.string   "system"
+    t.string   "institution"
+    t.datetime "sentenced_at"
+    t.datetime "released_at"
   end
 
   add_index "profiles", ["actor_id"], :name => "index_profiles_on_actor_id"
@@ -343,6 +346,15 @@ ActiveRecord::Schema.define(:version => 20140209014921) do
   end
 
   add_index "remote_subjects", ["actor_id"], :name => "index_remote_subjects_on_actor_id"
+
+  create_table "resources", :force => true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "address"
+    t.string   "phone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "rooms", :force => true do |t|
     t.integer  "actor_id"
